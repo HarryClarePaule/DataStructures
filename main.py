@@ -1,5 +1,3 @@
-
-
 class MyNewClass():
 
     def __init__(self, name1, name2):
