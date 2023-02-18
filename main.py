@@ -2,25 +2,26 @@
 
 class MyNewClass():
 
-    def __init__(self, x, y):
-        self.new_info = x
-        self.new_info_2 = y
-
-    def add(self, x, y):
-        total = x + y
-        return total
+    def __init__(self, name1, name2):
+        self.name1 = name1
+        self.name2 = name2
 
     def changeInfo(self, info1, info2):
-        self.new_info = info1 
-        self.new_info_2 = info2
+         self.name1 = info1 
+         self.name2 = info2
 
+    def add(self, x, y):
+        return x + y
 
+    def subtract(self, x, y):
+        return x - y
 
 
 Harry = MyNewClass("harry", "rebecca")
 
-print(Harry.new_info, Harry.new_info_2)
-Harry.changeInfo("This has been changed", "this has also been changed")
-print(Harry.new_info, Harry.new_info_2)
+print(Harry.name1, Harry.name2)
+Harry.changeInfo("Steven", "Pinot")
+print(Harry.name1, Harry.name2)
 
-
+print(Harry.add(5,7))
+print(Harry.subtract(5,2))
