@@ -103,8 +103,6 @@ class LinkedList:
         
 
     def remove_by_value(self, value):
-
-
         if self.head is None:
             return
 
@@ -118,6 +116,7 @@ class LinkedList:
             list.append(itr.data)
             itr = itr.next
         if value not in list:
+            # raise Exception("Value is not in list")
             print(f'{value} is not in list')
             return
 
@@ -130,11 +129,6 @@ class LinkedList:
             itr = itr.next
 
 
-            
-
-            
-
-
 if __name__ == '__main__':
     ll = LinkedList()
     ll.insert_values(["banana","mango","grapes","orange"])
@@ -143,7 +137,7 @@ if __name__ == '__main__':
     ll.print()
     ll.remove_by_value("orange") # remove orange from linked list
     ll.print()
-    ll.remove_by_value("figs")
+    ll.remove_by_value("figs") # is not in list
     ll.print()
     ll.remove_by_value("banana")
     ll.remove_by_value("mango")
