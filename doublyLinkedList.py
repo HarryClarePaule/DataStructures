@@ -4,7 +4,7 @@ class Node:
         self.next = next
         self.prev = prev
 
-class DoubleLinkedList:
+class DoublyLinkedList:
     def __init__(self):
         self.head = None
 
@@ -119,7 +119,7 @@ class DoubleLinkedList:
 
 
 if __name__ == '__main__':
-    ll = DoubleLinkedList()
+    ll = DoublyLinkedList()
     ll.insert_values(["banana","mango","grapes","orange"])
     ll.print_forward()
     ll.print_backward()
