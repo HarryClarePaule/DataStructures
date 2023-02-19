@@ -1,26 +1,27 @@
 class Node:
-    def __init__(self, data=None, next=None):
+    def __init__(self, data=None, next=None, prev=None):
         self.data = data
         self.next = next
+        self.prev = prev
 
 class LinkedList:
     def __init__(self):
         self.head = None
 
     def insert_at_beginning(self, data):
-        node = Node(data, self.head)
+        node = Node(data, self.head, None)
         self.head = node
 
     def insert_at_end(self, data):
         if self.head is None:
-            self.head = Node(data, None)
+            self.head = Node(data, None, None)
             return
 
         itr = self.head
         while itr.next:
             itr = itr.next
 
-        itr.next = Node(data, None)
+        itr.next = Node(data, None, itr.prev)
 
     def print(self):
         if self.head is None:
@@ -30,7 +31,7 @@ class LinkedList:
         itr = self.head
         llstr = ''
         while itr:
-            llstr += str(itr.data) + " --> "
+            llstr += "<-- " + str(itr.data) + " --> "
             itr = itr.next
 
         print(llstr)
@@ -89,13 +90,13 @@ class LinkedList:
             return
 
         if self.head.data == data_after:
-            self.head.next = Node(data_to_insert, self.head.next)
+            self.head.next = Node(data_to_insert, self.head.next, self.head.prev)
             return
 
         itr = self.head
         while itr:
             if itr.data == data_after:
-                node = Node(data_to_insert, itr.next)
+                node = Node(data_to_insert, itr.next, itr.prev)
                 itr.next = node
                 break
 
@@ -103,22 +104,11 @@ class LinkedList:
         
 
     def remove_by_value(self, value):
-
-
         if self.head is None:
             return
 
         if self.head.data == value:
             self.head = self.head.next
-            return
-
-        list = []
-        itr = self.head
-        while itr:
-            list.append(itr.data)
-            itr = itr.next
-        if value not in list:
-            print(f'{value} is not in list')
             return
 
         itr = self.head
@@ -128,11 +118,6 @@ class LinkedList:
                 break
 
             itr = itr.next
-
-
-            
-
-            
 
 
 if __name__ == '__main__':
