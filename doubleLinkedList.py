@@ -111,6 +111,16 @@ class LinkedList:
             self.head = self.head.next
             return
 
+        list = []
+        itr = self.head
+        while itr:
+            list.append(itr.data)
+            itr = itr.next
+        if value not in list:
+            # raise Exception("Value is not in list")
+            print(f'{value} is not in list')
+            return
+
         itr = self.head
         while itr:
             if itr.next.data == value:
