@@ -84,6 +84,26 @@ class LinkedList:
             itr = itr.next
             count += 1
 
+    def insert_after_value(self, data_after, data_to_insert):
+            itr = self.head
+            while itr:
+                if itr.data == data_after:
+                    node = Node(data_to_insert, itr.next)
+                    itr.next = node
+                    break
+
+                itr = itr.next
+        
+
+    def remove_by_value(self, value):
+        itr = self.head
+        while itr:
+            if itr.next.data == value:
+                print(f'{itr.next.data} matches {value}')
+                itr.next = itr.next.next
+                break
+
+            itr = itr.next
 
 
 if __name__ == '__main__':
@@ -100,4 +120,8 @@ if __name__ == '__main__':
     ll.remove_at(2)
     ll.print()
     ll.insert_at(1, "Mandy")
+    ll.print()
+    ll.insert_after_value("Mandy", "Banana")
+    ll.print()
+    ll.remove_by_value("Mandy")
     ll.print()
